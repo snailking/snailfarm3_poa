@@ -3343,7 +3343,7 @@ foundlettuceEvent.watch(function(error, result){
 		////////console.log(result);
 		if(checkHash(storetxhash, result.transactionHash) != 0) {
 			date24();
-			eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result.args.player) + " spent " + result[i].args.lettucereq + " Red Eggs to find a Lettuce.";
+			eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result.args.player) + " spent " + result.args.lettucereq + " Red Eggs to find a Lettuce.";
 			logboxscroll.scrollTop = logboxscroll.scrollHeight;
 		}
 	}

@@ -1,7 +1,8 @@
 //var contractAddress="0x388bDA6EeFCaD8A30C0656490834bdC829682DD7" // Sokol (POA)
 //var contractAddress="0xc866Df99469E9744c1652A0FC19E059b8Ff2753E" // Sokol 2
 //var contractAddress="0xB9D95fE3EFDA5A8f42926332De896Ad083440CA9" // Sokol 3
-var contractAddress="0x159C608D39852bdaEDA85a16A55654D60DBc2422" // Sokol 4
+//var contractAddress="0x159C608D39852bdaEDA85a16A55654D60DBc2422" // Sokol 4
+var contractAddress="0xe8826d573d2Bfb04458CABeB3EA703A109113843" // Sokol 5
 
 /* WEB3 DETECTION */
 
@@ -988,6 +989,7 @@ function updateRoundPot(){
 		});
 	} else {
 		a_roundPot = 0;
+		roundpotdoc.innerHTML = a_roundPot;
 	}
 }
 
@@ -1225,7 +1227,8 @@ function webBeginRound(){
 
 //Join round
 function webJoinRound(){
-	JoinRound(function(){
+	var weitospend = web3.toWei(a_joinCost,'ether');
+	JoinRound(weitospend, function(){
 	});
 }
 
@@ -1244,7 +1247,7 @@ function webClaimShare(){
 
 //Buy starting snails
 function webGetStarter(){
-    var weitospend = web3.toWei(0.04,'ether');
+    var weitospend = web3.toWei(a_hatchCost,'ether');
 	BuyStartingSnail(weitospend, function(){
 	});
 }
@@ -1332,7 +1335,7 @@ function webFindLettuce(){
 
 //Find Carrot
 function webFindCarrot(){
-	var weitospend = web3.toWei(0.2,'ether');
+	var weitospend = web3.toWei(a_carrotCost,'ether');
 	FindCarrot(weitospend, function(){
 	});
 }

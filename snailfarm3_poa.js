@@ -966,7 +966,7 @@ function updateRoundPot(){
 	var roundpotdoc = document.getElementById('roundpot');
 	if(a_gameActive == true){
 		roundPot(function(req) {
-			a_roundPot = formatEthValue(web3.fromWei(req,'ether'));
+			a_roundPot = formatEthValue2(web3.fromWei(req,'ether'));
 			roundpotdoc.innerHTML = a_roundPot;
 		});
 	} else {

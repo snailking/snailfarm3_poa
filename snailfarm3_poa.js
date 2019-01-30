@@ -53,6 +53,7 @@ var ranLog = false;
 
 function checkBlock(){
 	web3.eth.getBlockNumber(function (error, result){
+		console.log("block number is " + result);
 		twoDaysBlock = result - 6000; //1 day
 	});
 }
@@ -3027,13 +3028,13 @@ function runLog(){
 						if(result[i].event == "Hatched"){
 							eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " hatched " + result[i].args.eggs + " Eggs into " + result[i].args.snails + " Snails, and has " + result[i].args.hatchery + " Snails in total.";
 							e_hatched.address = result[i].args.player;
-							e_hatched.hatchery = parseInt(result[i].args.hatchery); //seems to return an array/object
+							e_hatched.hatchery = parseInt(result[i].args.hatchery);
 							computeLeaderboard();
 							
 						} else if(result[i].event == "UsedRed"){
 							eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " hatched " + result[i].args.eggs + " Reds into " + result[i].args.snails + " Snails, and has a total of " + result[i].args.hatchery + " Snails.";
 							e_hatched.address = result[i].args.player;
-							e_hatched.hatchery = result[i].args.hatchery; //seems to return an array/object
+							e_hatched.hatchery = result[i].args.hatchery;
 							computeLeaderboard();
 							
 						} else if(result[i].event == "FundedTree"){

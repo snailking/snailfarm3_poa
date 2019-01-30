@@ -172,6 +172,12 @@ body:before {
 	background-color: #b7a575;
 }
 
+/* Green outline remover */
+.btn:focus,.btn:active {
+   outline: none !important;
+   box-shadow: none;
+}
+
 .leader-style {
 	font-size: 1.25rem;
 }

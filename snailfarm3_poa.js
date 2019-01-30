@@ -1226,7 +1226,7 @@ function webClaimShare(){
 
 //Buy starting snails
 function webGetStarter(){
-    var weitospend = web3.toWei(0.004,'ether');
+    var weitospend = web3.toWei(0.04,'ether');
 	BuyStartingSnail(weitospend, function(){
 	});
 }
@@ -1256,7 +1256,7 @@ function webCheck(_func){
 
 //Hatch eggs
 function webHatchEgg(){
-	var weitospend = web3.toWei(0.0008,'ether');
+	var weitospend = web3.toWei(0.008,'ether');
 	HatchEgg(weitospend, function(){
 	});
 }
@@ -1314,7 +1314,7 @@ function webFindLettuce(){
 
 //Find Carrot
 function webFindCarrot(){
-	var weitospend = web3.toWei(0.02,'ether');
+	var weitospend = web3.toWei(0.2,'ether');
 	FindCarrot(weitospend, function(){
 	});
 }

@@ -3014,7 +3014,6 @@ var eventlogdoc = document.getElementById("eventlog");
 
 var e_hatched = { address: "", hatchery: 0 };
 
-
 function runLog(){
 	if(ranLog == false && twoDaysBlock > 0){
 		ranLog = true;
@@ -3053,7 +3052,7 @@ function runLog(){
 							eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " sold " + result[i].args.eggs + " Eggs for " + formatEthValue2(web3.fromWei(result[i].args.eth,'ether')) + " ETH.";
 
 						} else if(result[i].event == "BoughtEgg"){
-							eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " bought " + result[i].args.eggs + " Eggs for " + formatEthValue2(web3.fromWei(result[i].args.eth,'ether')) + " ETH."; //inverted eggs and ETH in contract event
+							eventlogdoc.innerHTML += "<br>[~" + datetext + "] " + formatEthAdr(result[i].args.player) + " bought " + result[i].args.eggs + " Eggs for " + formatEthValue2(web3.fromWei(result[i].args.eth,'ether')) + " ETH.";
 
 						} else if(result[i].event == "StartedSnailing"){
 							eventlogdoc.innerHTML += "<br>[~" + datetext + "] Welcome to our newest SnailFarmer, " + formatEthAdr(result[i].args.player) + "!";
@@ -3110,7 +3109,7 @@ var hatchEvent = myContract.Hatched();
 
 hatchEvent.watch(function(error, result){
     if(!error){
-		////////console.log(result);
+		console.log(result);
 		if(checkHash(storetxhash, result.transactionHash) != 0) {
 			date24();
 			eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result.args.player) + " hatched " + result.args.eggs + " Eggs into " + result.args.snails + " Snails, and has " + result.args.hatchery + " Snails in total.";
@@ -3126,7 +3125,7 @@ var usedredEvent = myContract.UsedRed();
 
 usedredEvent.watch(function(error, result){
     if(!error){
-		////////console.log(result);
+		console.log(result);
 		if(checkHash(storetxhash, result.transactionHash) != 0) {
 			date24();
 			eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result.args.player) + " hatched " + result.args.eggs + " Reds into " + result.args.snails + " Snails, and has a total of " + result.args.hatchery + " Snails.";
@@ -3142,7 +3141,7 @@ var fundedtreeEvent = myContract.FundedTree();
 
 fundedtreeEvent.watch(function(error, result){
     if(!error){
-		////////console.log(result);
+		console.log(result);
 		if(checkHash(storetxhash, result.transactionHash) != 0) {
 			date24();
 			eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result.args.player) + " funded the EtherTree with " + formatEthValue2(web3.fromWei(result.args.eth,'ether')) + " ETH and receives " + result.args.acorns + " Acorns.";
@@ -3156,7 +3155,7 @@ var claimedshareEvent = myContract.ClaimedShare();
 
 claimedshareEvent.watch(function(error, result){
     if(!error){
-		////////console.log(result);
+		console.log(result);
 		if(checkHash(storetxhash, result.transactionHash) != 0) {
 			date24();
 			eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result.args.player) + " claimed " + formatEthValue2(web3.fromWei(result.args.eth,'ether')) + " ETH thanks to their " + result.args.acorns + " Acorns.";
@@ -3170,7 +3169,7 @@ var becamemasterEvent = myContract.BecameMaster();
 
 becamemasterEvent.watch(function(error, result){
     if(!error){
-		////////console.log(result);
+		console.log(result);
 		if(checkHash(storetxhash, result.transactionHash) != 0) {
 			date24();
 			eventlogdoc.innerHTML += "<br>[" + datetext + "] Bow down to " + formatEthAdr(result.args.player) + ", your new Snailmaster!";
@@ -3183,7 +3182,7 @@ var withdrewbalanceEvent = myContract.WithdrewBalance();
 
 withdrewbalanceEvent.watch(function(error, result){
     if(!error){
-		////////console.log(result);
+		console.log(result);
 		if(checkHash(storetxhash, result.transactionHash) != 0) {
 			date24();
 			eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result.args.player) + " withdrew " + formatEthValue2(web3.fromWei(result.args.eth,'ether')) + " ETH from their balance.";
@@ -3197,7 +3196,7 @@ var soldeggEvent = myContract.SoldEgg();
 
 soldeggEvent.watch(function(error, result){
     if(!error){
-		////////console.log(result);
+		console.log(result);
 		if(checkHash(storetxhash, result.transactionHash) != 0) {
 			date24();
 			eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result.args.player) + " sold " + result.args.eggs + " Eggs for " + formatEthValue2(web3.fromWei(result.args.eth,'ether')) + " ETH.";
@@ -3210,10 +3209,10 @@ var boughteggEvent = myContract.BoughtEgg();
 
 boughteggEvent.watch(function(error, result){
     if(!error){
-		////////console.log(result);
+		console.log(result);
 		if(checkHash(storetxhash, result.transactionHash) != 0) {
 			date24();
-			eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result.args.player) + " bought " + result.args.eggs + " Eggs for " + formatEthValue2(web3.fromWei(result.args.eth,'ether')) + " ETH."; //inverted eggs and ETH in contract event
+			eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result.args.player) + " bought " + result.args.eggs + " Eggs for " + formatEthValue2(web3.fromWei(result.args.eth,'ether')) + " ETH.";
 			logboxscroll.scrollTop = logboxscroll.scrollHeight;
 		}
 	}
@@ -3223,7 +3222,7 @@ var startedsnailingEvent = myContract.StartedSnailing();
 
 startedsnailingEvent.watch(function(error, result){
     if(!error){
-		////////console.log(result);
+		console.log(result);
 		if(checkHash(storetxhash, result.transactionHash) != 0) {
 			date24();
 			eventlogdoc.innerHTML += "<br>[" + datetext + "] Welcome to our newest SnailFarmer, " + formatEthAdr(result.args.player) + "!";
@@ -3236,7 +3235,7 @@ var becamequeenEvent = myContract.BecameQueen();
 
 becamequeenEvent.watch(function(error, result){
     if(!error){
-		////////console.log(result);
+		console.log(result);
 		if(checkHash(storetxhash, result.transactionHash) != 0) {
 			date24();
 			eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result.args.player) + " becomes the SpiderQueen!";
@@ -3249,7 +3248,7 @@ var becamedukeEvent = myContract.BecameDuke();
 
 becamequeenEvent.watch(function(error, result){
     if(!error){
-		////////console.log(result);
+		console.log(result);
 		if(checkHash(storetxhash, result.transactionHash) != 0) {
 			date24();
 			eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result.args.player) + " becomes the SquirrelDuke!";
@@ -3262,7 +3261,7 @@ var becameprinceEvent = myContract.BecamePrince();
 
 becameprinceEvent.watch(function(error, result){
     if(!error){
-		////////console.log(result);
+		console.log(result);
 		if(checkHash(storetxhash, result.transactionHash) != 0) {
 			date24();
 			eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result.args.player) + " becomes the TadpolePrince!";
@@ -3275,7 +3274,7 @@ var wonroundEvent = myContract.WonRound();
 
 wonroundEvent.watch(function(error, result){
     if(!error){
-		////////console.log(result);
+		console.log(result);
 		//if(checkHash(storetxhash, result.transactionHash) != 0) {
 			date24();
 			eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result.args.roundwinner) + " WINS ROUND " + result.args.round + " AND EARNS " + formatEthValue2(web3.fromWei(result.args.eth,'ether')) + " ETH!";
@@ -3288,7 +3287,7 @@ var beganroundEvent = myContract.BeganRound();
 
 beganroundEvent.watch(function(error, result){
     if(!error){
-		////////console.log(result);
+		console.log(result);
 		if(checkHash(storetxhash, result.transactionHash) != 0) {
 			date24();
 			eventlogdoc.innerHTML += "<br>[" + datetext + "] Round " + result.args.round + " has started!";
@@ -3301,7 +3300,7 @@ var joinedroundEvent = myContract.JoinedRound();
 
 joinedroundEvent.watch(function(error, result){
     if(!error){
-		////////console.log(result);
+		console.log(result);
 		if(checkHash(storetxhash, result.transactionHash) != 0) {
 			date24();
 			eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result.args.player) + " joins the fray, with " + result.args.playerreds + " Red Eggs.";
@@ -3314,7 +3313,7 @@ var grabbedharvestEvent = myContract.GrabbedHarvest();
 
 grabbedharvestEvent.watch(function(error, result){
     if(!error){
-		////////console.log(result);
+		console.log(result);
 		if(checkHash(storetxhash, result.transactionHash) != 0) {
 			date24();
 			eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result.args.player) + " grabbed the Red Harvest by spending " + formatEthValue2(web3.fromWei(result.args.eth,'ether')) + " ETH.";
@@ -3327,7 +3326,7 @@ var foundslugEvent = myContract.FoundSlug();
 
 foundslugEvent.watch(function(error, result){
     if(!error){
-		////////console.log(result);
+		console.log(result);
 		if(checkHash(storetxhash, result.transactionHash) != 0) {
 			date24();
 			eventlogdoc.innerHTML += "<br>[" + datetext + "] " + formatEthAdr(result.args.player) + " sacrifices a colossal " + result.args.snails + " Snails and finds the Slug.";

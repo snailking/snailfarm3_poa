@@ -30,6 +30,20 @@ body {
 	background-attachment: fixed;
 }
 
+/* Purple Tint for POA */
+.tint:after {
+    content: '';
+    position: fixed;
+    z-index: 100000;
+    top: 0;
+    left: 0;
+    opacity: .1;
+    pointer-events: none;
+    background: purple;
+    width: 100%;
+    height: 100%;
+}
+
 @media only screen and (max-width:900px), (max-device-width:900px){
 body:before {
   content: "";
@@ -92,6 +106,11 @@ body:before {
 	border-image: url("img/brick.png") 30 round;
 	padding: 0.5rem 0.5rem;
 	margin: 0.5rem;
+}
+
+.img-title {
+	border: 4px solid transparent;
+	border-image: url("img/brick.png") 30 round;
 }
 
 .black-shadow {
